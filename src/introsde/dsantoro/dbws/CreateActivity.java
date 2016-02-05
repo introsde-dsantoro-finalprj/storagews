@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="activity" type="{http://dbws.dsantoro.introsde/}activity" minOccurs="0"/>
+ *         &lt;element name="activityRqst" type="{http://dbws.dsantoro.introsde/}activity" minOccurs="0"/>
  *         &lt;element name="person" type="{http://dbws.dsantoro.introsde/}person" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -28,36 +28,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "createActivity", propOrder = {
-    "activity",
+    "activityRqst",
     "person"
 })
 public class CreateActivity {
 
-    protected Activity activity;
+    protected Activity activityRqst;
     protected Person person;
 
     /**
-     * Gets the value of the activity property.
+     * Gets the value of the activityRqst property.
      * 
      * @return
      *     possible object is
      *     {@link Activity }
      *     
      */
-    public Activity getActivity() {
-        return activity;
+    public Activity getActivityRqst() {
+        return activityRqst;
     }
 
     /**
-     * Sets the value of the activity property.
+     * Sets the value of the activityRqst property.
      * 
      * @param value
      *     allowed object is
      *     {@link Activity }
      *     
      */
-    public void setActivity(Activity value) {
-        this.activity = value;
+    public void setActivityRqst(Activity value) {
+        this.activityRqst = value;
     }
 
     /**
