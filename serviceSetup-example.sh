@@ -1,0 +1,5 @@
+#!/bin/bash
+export DBWS_ENDPOINT=192.168.5.3
+export DBWS_PORT=6902
+export ADPWS_ENDPOINT=192.168.5.3
+export ADPWS_PORT=6904
