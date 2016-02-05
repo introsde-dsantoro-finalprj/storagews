@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="meal" type="{http://dbws.dsantoro.introsde/}meal" minOccurs="0"/>
+ *         &lt;element name="mealRqst" type="{http://dbws.dsantoro.introsde/}meal" minOccurs="0"/>
  *         &lt;element name="person" type="{http://dbws.dsantoro.introsde/}person" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -28,36 +28,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "createMeal", propOrder = {
-    "meal",
+    "mealRqst",
     "person"
 })
 public class CreateMeal {
 
-    protected Meal meal;
+    protected Meal mealRqst;
     protected Person person;
 
     /**
-     * Gets the value of the meal property.
+     * Gets the value of the mealRqst property.
      * 
      * @return
      *     possible object is
      *     {@link Meal }
      *     
      */
-    public Meal getMeal() {
-        return meal;
+    public Meal getMealRqst() {
+        return mealRqst;
     }
 
     /**
-     * Sets the value of the meal property.
+     * Sets the value of the mealRqst property.
      * 
      * @param value
      *     allowed object is
      *     {@link Meal }
      *     
      */
-    public void setMeal(Meal value) {
-        this.meal = value;
+    public void setMealRqst(Meal value) {
+        this.mealRqst = value;
     }
 
     /**

@@ -1,4 +1,11 @@
 * Deployment
+** Requirements
+   Import the wsdl classes from dbws:
+   #+BEGIN_EXAMPLE
+   rm -rf src/introsde/dsantoro/dbws
+   wsimport -keep http://192.168.5.3:6902/ws/dbws?wsdl
+   #+END_EXAMPLE
+** Instruction
   1) Deploy on Heroku
      #+BEGIN_EXAMPLE
      heroku login

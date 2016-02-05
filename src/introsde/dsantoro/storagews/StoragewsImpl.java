@@ -4,7 +4,11 @@ import java.util.Collection;
 
 import javax.jws.WebService;
 
+import introsde.dsantoro.dbws.Activity;
 import introsde.dsantoro.dbws.Dbws;
+import introsde.dsantoro.dbws.Goal;
+import introsde.dsantoro.dbws.Meal;
+import introsde.dsantoro.dbws.Person;
 
 @WebService(endpointInterface = "introsde.dsantoro.storagews.Storagews", serviceName="storagewsService")
 public class StoragewsImpl implements Storagews {
@@ -15,77 +19,63 @@ public class StoragewsImpl implements Storagews {
 	}
 
 	@Override
-	public introsde.dsantoro.dbws.Person readPerson(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Person readPerson(Long id) {
+		return dbws.readPerson(id);
 	}
 
 	@Override
-	public Collection<introsde.dsantoro.dbws.Person> readPersonList() {
-		return dbws.readPersonList();
+	public Collection<Person> readPersonList() {
+		return dbws.readPersonList();	
 	}
 
 	@Override
-	public introsde.dsantoro.dbws.Person createPerson(introsde.dsantoro.dbws.Person person) {
-		// TODO Auto-generated method stub
-		return null;
+	public Person createPerson(Person person) {
+		return dbws.createPerson(person);
 	}
 
 	@Override
-	public introsde.dsantoro.dbws.Goal readGoal(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Goal readGoal(Long id) {
+		return dbws.readGoal(id);
 	}
 
 	@Override
-	public Collection<introsde.dsantoro.dbws.Goal> readGoalList() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<Goal> readGoalList() {
+		return dbws.readGoalList();
 	}
 
 	@Override
-	public introsde.dsantoro.dbws.Goal createGoal(introsde.dsantoro.dbws.Goal goal,
-			introsde.dsantoro.dbws.Person person) {
-		// TODO Auto-generated method stub
-		return null;
+	public Goal createGoal(Goal goal, Person person) {
+		return dbws.createGoal(goal, person);
 	}
 
 	@Override
-	public introsde.dsantoro.dbws.Activity readActivity(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Activity readActivity(Long id) {
+		return dbws.readActivity(id);
 	}
 
 	@Override
-	public Collection<introsde.dsantoro.dbws.Activity> readActivityList() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<Activity> readActivityList() {
+		return dbws.readActivityList();
 	}
 
 	@Override
-	public introsde.dsantoro.dbws.Activity createActivity(introsde.dsantoro.dbws.Activity activity,
-			introsde.dsantoro.dbws.Person person) {
-		// TODO Auto-generated method stub
-		return null;
+	public Activity createActivity(Activity activity, Person person) {
+		return dbws.createActivity(activity, person);
 	}
 
 	@Override
-	public introsde.dsantoro.dbws.Meal readMeal(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Meal readMeal(Long id) {
+		return dbws.readMeal(id);
 	}
 
 	@Override
-	public Collection<introsde.dsantoro.dbws.Meal> readMealList() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<Meal> readMealList() {
+		return readMealList();
 	}
 
 	@Override
-	public introsde.dsantoro.dbws.Meal createMeal(introsde.dsantoro.dbws.Meal meal,
-			introsde.dsantoro.dbws.Person person) {
-		// TODO Auto-generated method stub
-		return null;
+	public Meal createMeal(Meal meal, Person person) {
+		return createMeal(meal, person);
 	}
 
 }
