@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.jws.WebService;
 
 import introsde.dsantoro.adpws.Adpws;
+
 import introsde.dsantoro.dbws.Activity;
 import introsde.dsantoro.dbws.Dbws;
 import introsde.dsantoro.dbws.Goal;
