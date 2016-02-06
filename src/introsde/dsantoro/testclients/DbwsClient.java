@@ -1,4 +1,4 @@
-package introsde.dsantoro.dbwsclient;
+package introsde.dsantoro.testclients;
 
 import java.net.MalformedURLException;
 import java.net.URL;

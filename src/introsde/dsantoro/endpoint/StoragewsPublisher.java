@@ -8,6 +8,7 @@ import java.net.URL;
 
 import javax.xml.ws.Endpoint;
 
+import introsde.dsantoro.adpws.Adpws;
 import introsde.dsantoro.dbws.Dbws;
 import introsde.dsantoro.dbws.DbwsService;
 import introsde.dsantoro.storagews.StoragewsImpl;
@@ -29,26 +30,37 @@ public class StoragewsPublisher {
         
         String endpointUrl = PROTOCOL+HOSTNAME+":"+PORT+BASE_URL;
         System.out.println("Starting storage Service...");
+        
         // Check south-bound services
         Dbws dbws = getDbwsHandle();
-        if (dbws != null) {
+        Adpws adpws = getAdpwsHandle();
+        if ( (dbws != null) && (adpws != null) ) {
         	// Proceed with startup
-        	Endpoint.publish(endpointUrl, new StoragewsImpl(dbws));
+        	Endpoint.publish(endpointUrl, new StoragewsImpl(dbws, adpws));        	
             System.out.println("--> Published. Check out "+endpointUrl+"?wsdl");	
         }
         else {
         	// Cannot start dependent services
         	System.out.println("--> ERROR: Not published. Check out dependent services:");
         	System.out.println("----> dbws: " + dbws);
+        	System.out.println("----> adpws: " + adpws);
         }
         
     }
 	
+	private static Adpws getAdpwsHandle() {
+		final String ADPWS_ENDPOINT = System.getenv("ADPWS_ENDPOINT");
+		final String ADPWS_PORT = System.getenv("ADPWS_PORT");
+		return new Adpws(ADPWS_ENDPOINT, ADPWS_PORT);		
+	}
+
 	private static Dbws getDbwsHandle() throws MalformedURLException {
 		final String DBWS_ENDPOINT = System.getenv("DBWS_ENDPOINT");
 		final String DBWS_PORT = System.getenv("DBWS_PORT");
-		DbwsService dbwsService = new DbwsService(new URL("http://"+DBWS_ENDPOINT+":"+DBWS_PORT+"/ws/dbws?wsdl"));
+		String dbwsURL = "http://"+DBWS_ENDPOINT+":"+DBWS_PORT+"/ws/dbws?wsdl";
+		DbwsService dbwsService = new DbwsService(new URL(dbwsURL));		
 		Dbws dbws = dbwsService.getDbwsImplPort();
+		System.out.println("Dbws config: Got a valid endpoint: " + dbwsURL);
 		return dbws;		
 	}
 }

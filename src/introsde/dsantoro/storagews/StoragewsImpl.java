@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.jws.WebService;
 
+import introsde.dsantoro.adpws.Adpws;
 import introsde.dsantoro.dbws.Activity;
 import introsde.dsantoro.dbws.Dbws;
 import introsde.dsantoro.dbws.Goal;
@@ -13,9 +14,11 @@ import introsde.dsantoro.dbws.Person;
 @WebService(endpointInterface = "introsde.dsantoro.storagews.Storagews", serviceName="storagewsService")
 public class StoragewsImpl implements Storagews {
 	private Dbws dbws;
+	private Adpws adpws;
 	
-	public StoragewsImpl(Dbws dbws) {
+	public StoragewsImpl(Dbws dbws, Adpws adpws) {
 		this.dbws = dbws;
+		this.adpws = adpws;
 	}
 
 	@Override
@@ -70,12 +73,16 @@ public class StoragewsImpl implements Storagews {
 
 	@Override
 	public Collection<Meal> readMealList() {
-		return readMealList();
+		return dbws.readMealList();
 	}
 
 	@Override
 	public Meal createMeal(Meal meal, Person person) {
-		return createMeal(meal, person);
+		return dbws.createMeal(meal, person);
 	}
 
+	@Override
+	public Collection<Meal> searchMeals(String searchKey, int start, int quantity) {		
+		return adpws.searchFoods(searchKey, start, quantity);
+	}
 }

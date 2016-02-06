@@ -38,7 +38,7 @@ public interface Storagews {
 	public Goal readGoal(@WebParam(name="goalId") Long id);
 
 	@WebMethod(operationName="readGoalList")
-	@WebResult(name="goalList") 
+	@WebResult(name="goal") 
 	public Collection<Goal> readGoalList();
 
 	@WebMethod(operationName="createGoal")
@@ -51,7 +51,7 @@ public interface Storagews {
 	public Activity readActivity(@WebParam(name="activityId") Long id);
 
 	@WebMethod(operationName="readActivityList")
-	@WebResult(name="activityList") 
+	@WebResult(name="activity") 
 	public Collection<Activity> readActivityList();
 
 	@WebMethod(operationName="createActivity")
@@ -64,10 +64,15 @@ public interface Storagews {
 	public Meal readMeal(@WebParam(name="mealId") Long id);
 
 	@WebMethod(operationName="readMealList")
-	@WebResult(name="mealList") 
+	@WebResult(name="meal") 
 	public Collection<Meal> readMealList();
 
 	@WebMethod(operationName="createMeal")
 	@WebResult(name="meal") 
 	public Meal createMeal(@WebParam(name="meal") Meal meal, @WebParam(name="person") Person person);
+	
+	@WebMethod(operationName="searchMeals")
+	@WebResult(name="meal") 
+	public Collection<Meal> searchMeals(@WebParam(name="searchKey") String searchKey, @WebParam(name="start") int start, @WebParam(name="quantity") int quantity);
+	
 }
